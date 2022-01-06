@@ -9,8 +9,9 @@ inputs:
 
 runs:
   using: "composite"
-  steps:
+  steps: 
     - name: Install Spack
+      id: install-spack
       run: |
         SPACK_BIN_DIR=$GITHUB_WORKSPACE/.spack \
         SPACK_REF=${{ inputs.version }} \
