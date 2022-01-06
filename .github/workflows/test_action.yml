@@ -7,6 +7,6 @@ jobs:
         - uses: kzscisoft/install-spack@testing
           with:
             packages: |
-              hipscyl
+              hipsycl
               hipsparse
             environment_dir: my_spack_env
