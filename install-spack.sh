@@ -10,7 +10,7 @@ git clone -c feature.manyFiles=true https://github.com/spack/spack.git ${SPACK_S
 cd ${SPACK_SRC_DIR}
 
 if [ "${SPACK_REF}" == "latest" ]; then
-    INPUT_REF=$(git describe --tags --abbrev=0)
+    SPACK_REF=$(git describe --tags --abbrev=0)
 fi
 
 echo "::notice title=Data Store::Checking out version: ${SPACK_REF}"
