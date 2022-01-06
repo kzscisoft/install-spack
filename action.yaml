@@ -1,0 +1,22 @@
+name: Spack Install Action
+author: Kristian Zarebski (UKAEA)
+description: Installs the Spack package management tool
+inputs:
+  version:
+    description: version to install
+    required: false
+    default: latest
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Spack
+      run: |
+        SPACK_BIN_DIR=$GITHUB_WORKSPACE/.spack \
+        SPACK_REF=${{ inputs.version }} \
+        $GITHUB_ACTION_PATH/install-spack.sh
+      shell: bash
+  
+branding:
+  icon: terminal
+  color: gray-dark

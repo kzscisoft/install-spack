@@ -1,0 +1,7 @@
+name: FAIR Data Pipeline Action Check
+on: [release]
+jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: kzscisoft/install-spack@testing
