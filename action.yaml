@@ -6,6 +6,14 @@ inputs:
     description: version to install
     required: false
     default: latest
+  packages:
+    description: packages to install
+    required: false
+    default: ''
+  environment_dir:
+    description: path of virtual environment
+    required: false
+    default: none
 
 runs:
   using: "composite"
@@ -14,8 +22,9 @@ runs:
       id: install-spack
       run: |
         SPACK_SRC_DIR=$GITHUB_WORKSPACE/.spack \
+        SPACK_ENV_DIR=${{ inputs.environment_dir }} \
         SPACK_REF=${{ inputs.version }} \
-        $GITHUB_ACTION_PATH/install-spack.sh
+        $GITHUB_ACTION_PATH/install-spack.sh ${{ inputs.packages }}
       shell: bash
   
 branding:

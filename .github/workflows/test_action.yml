@@ -5,3 +5,8 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: kzscisoft/install-spack@testing
+          with:
+            packages: |
+              hipscyl
+              hipsparse
+            environment_dir: my_spack_env
