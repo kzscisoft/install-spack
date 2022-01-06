@@ -26,16 +26,16 @@ if [ "$#" -ne 0 ]; then
     fi
     echo "::group::Installing Package"
     echo "::notice title=Environment::Creating spack environment in: ${SPACK_ENV_DIR}"
-    $SPACK_SRC_DIR/spack env create -d $SPACK_ENV_DIR
-    $SPACK_SRC_DIR/spack env activate -d $SPACK_ENV_DIR
+    $SPACK_SRC_DIR/bin/spack env create -d $SPACK_ENV_DIR
+    $SPACK_SRC_DIR/bin/spack env activate -d $SPACK_ENV_DIR
     for package in "$@"
     do
-        $SPACK_SRC_DIR/spack install $package
+        $SPACK_SRC_DIR/bin/spack install $package
     done
 elif [ "${SPACK_ENV_DIR}" != "none" ]; then
     echo "::notice title=Environment::Using spack environment in: ${SPACK_ENV_DIR}"
-    $SPACK_SRC_DIR/spack env activate -d 
-    $SPACK_ENV_DIR/spack install
+    $SPACK_SRC_DIR/bin/spack env activate -d 
+    $SPACK_ENV_DIR/bin/spack install
 fi
 
 
