@@ -13,7 +13,7 @@ runs:
     - name: Install Spack
       id: install-spack
       run: |
-        SPACK_BIN_DIR=$GITHUB_WORKSPACE/.spack \
+        SPACK_SRC_DIR=$GITHUB_WORKSPACE/.spack \
         SPACK_REF=${{ inputs.version }} \
         $GITHUB_ACTION_PATH/install-spack.sh
       shell: bash

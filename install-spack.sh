@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+set -e
+
 CURWD=$PWD
 
 echo "::group::Install FAIR-CLI"
