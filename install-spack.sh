@@ -20,6 +20,8 @@ git checkout ${SPACK_REF}
 cd ${CURWD}
 echo "::endgroup::"
 
+. $SPACK_SRC_DIR/share/spack/setup-env.sh
+
 if [ "$#" -ne 0 ]; then
     if [ "${SPACK_ENV_DIR}" == "none" ]; then
         SPACK_ENV_DIR=$GITHUB_WORKSPACE/spack_env
