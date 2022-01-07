@@ -9,4 +9,3 @@ jobs:
             packages: |
               zlib
               curl
-            environment_dir: my_spack_env
