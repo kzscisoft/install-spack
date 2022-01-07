@@ -1,11 +1,17 @@
-name: FAIR Data Pipeline Action Check
+name: Spack Install Action Check
 on: [release]
 jobs:
     test:
       runs-on: ubuntu-latest
       steps:
         - uses: kzscisoft/install-spack@testing
+          id: install-spack
           with:
             packages: |
               zlib
               curl
+        - name: Check binary version matches output version
+          run: |
+            if[ "$(spack --version)" != "${{ install-spack.outputs.version }}" ]; then
+              exit 1
+            fi

@@ -22,6 +22,8 @@ echo "::endgroup::"
 
 . $SPACK_SRC_DIR/share/spack/setup-env.sh
 
+echo "::set-output name=version::$(spack --version)"
+
 if [ "$#" -ne 0 ]; then
     echo "::group::Installing Packages"
     for package in "$@"
