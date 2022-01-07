@@ -15,3 +15,9 @@ jobs:
             if [ "$(spack --version)" != "${{ steps.install-spack.outputs.version }}" ]; then
               exit 1
             fi
+        
+        - name: Check zlib installed
+          run: | 
+            if [ "$(spack install zlib | head -n 1)" != "[+]" ]; then
+              exit 1
+            fi
