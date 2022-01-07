@@ -35,6 +35,9 @@ fi
 
 echo "::group::Spack Export"
 echo "::notice title=Updating PATH::Adding '$SPACK_SRC_DIR/bin' to \$PATH in \$GITHUB_ENV"
-echo "PATH=$PATH" >> $GITHUB_ENV
+echo "PATH=\"$PATH\"" >> $GITHUB_ENV
+echo "SPACK_LD_LIBRARY_PATH=\"$SPACK_LD_LIBRARY_PATH\"" >> $GITHUB_ENV
+echo "SPACK_ROOT=\"$SPACK_SRC_DIR\"" >> $GITHUB_ENV
+echo "SPACK_PYTHON=\"$SPACK_PYTHON\"" >> $GITHUB_ENV
 echo "$SPACK_SRC_DIR/bin" >> $GITHUB_PATH
 echo "::endgroup::"
