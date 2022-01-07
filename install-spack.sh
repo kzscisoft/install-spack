@@ -31,4 +31,8 @@ if [ "$#" -ne 0 ]; then
     done
 fi
 
-
+echo "::group::Spack Export"
+echo "::notice title=Updating PATH::Adding '$SPACK_SRC_DIR/bin' to \$PATH in \$GITHUB_ENV"
+echo "PATH=$PATH" >> $GITHUB_ENV
+echo "$SPACK_SRC_DIR/bin" >> $GITHUB_PATH
+echo "::endgroup::"
