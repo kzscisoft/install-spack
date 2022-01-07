@@ -32,7 +32,7 @@ runs:
       uses: actions/cache@v2
       with:
         path: $GITHUB_WORKSPACE/.spack
-        key: ubuntu-${{ outputs.version }}
+        key: ubuntu-${{ steps.install-spack.outputs.version }}
   
 branding:
   icon: terminal
