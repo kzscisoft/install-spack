@@ -24,7 +24,7 @@ runs:
       run: |
         SPACK_SRC_DIR=$GITHUB_WORKSPACE/.spack \
         SPACK_REF=${{ inputs.version }} \
-        $GITHUB_ACTION_PATH/install-spack.sh echo $("${{ inputs.packages )}}" | xargs)
+        $GITHUB_ACTION_PATH/install-spack.sh echo $("${{ inputs.packages }}" | xargs)
       shell: bash
   
 branding:
