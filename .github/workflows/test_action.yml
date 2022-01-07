@@ -12,6 +12,6 @@ jobs:
               curl
         - name: Check binary version matches output version
           run: |
-            if[ "$(spack --version)" != "${{ install-spack.outputs.version }}" ]; then
+            if[ "$(spack --version)" != "${{ steps.install-spack.outputs.version }}" ]; then
               exit 1
             fi
