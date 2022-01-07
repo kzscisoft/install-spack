@@ -9,7 +9,7 @@ jobs:
           with:
             packages: |
               zlib
-              curl
+              jsoncpp
         - name: Check binary version matches output version
           run: |
             if [ "$(spack --version)" != "${{ steps.install-spack.outputs.version }}" ]; then
