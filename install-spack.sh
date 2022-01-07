@@ -23,22 +23,12 @@ echo "::endgroup::"
 . $SPACK_SRC_DIR/share/spack/setup-env.sh
 
 if [ "$#" -ne 0 ]; then
-    if [ "${SPACK_ENV_DIR}" == "none" ]; then
-        SPACK_ENV_DIR=$GITHUB_WORKSPACE/spack_env
-    fi
     echo "::group::Installing Packages"
-    echo "::notice title=Environment::Creating spack environment in: ${SPACK_ENV_DIR}"
-    spack env create -d $SPACK_ENV_DIR
-    spack env activate -d $SPACK_ENV_DIR
     for package in "$@"
     do
-        echo "::notice title=Environment::Installing package $package"
+        echo "::notice title=Install Package::Installing package $package"
         spack install $package
     done
-elif [ "${SPACK_ENV_DIR}" != "none" ]; then
-    echo "::notice title=Environment::Using spack environment in: ${SPACK_ENV_DIR}"
-    spack env activate -d 
-    spack install
 fi
 
 
